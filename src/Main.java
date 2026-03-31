@@ -39,7 +39,7 @@ public class Main {
         ids.add("EMP-010");
 
         List<Employee> employeeList = new ArrayList<>();
-
+        System.out.println(ids.get(1));
         //METODO DE CREAR EMPLEADOS ALEATORIOS BY IGOR!
 
         for (int i = 0; i < names.size(); i++) {
