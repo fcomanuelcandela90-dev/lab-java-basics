@@ -1,12 +1,12 @@
 public class Intern extends Employee {
 
     // Constante para el límite de sueldo
-    public static final double MAX_SALARY_LIMIT = 20000.0;
+    private static final double MAX_SALARY_LIMIT = 20000.0;
 
     // Constructor: Al llamar a super, ponemos "false" en el booleano de Full Time
     public Intern(String id, String name, double salary) {
         super(id, name, salary, false);
-        validateAndSetSalary(salary);
+        setSalary(salary);
     }
 
     // Sobrescribimos el Rol

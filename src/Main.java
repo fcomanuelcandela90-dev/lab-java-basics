@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -11,32 +14,53 @@ public class Main {
         System.out.println("\n--- TASK 5 => Employees & Interns ---");
 
         // Lista de 10 empleados
-        String[] names = {
-                "Manuel Candela", "Ana García", "Carlos Pérez", "Lucía Fernández",
-                "David Jiménez", "Elena Ruiz", "Sergio Torres", "Marta Luna",
-                "Iván Ramos", "Sonia Castro"
-        };
+        List<String> names = new ArrayList<>();
+        names.add("Manuel Candela");
+        names.add("Ana García");
+        names.add("Carlos Pérez");
+        names.add("Lucía Fernández");
+        names.add("David Jiménez");
+        names.add("Elena Ruiz");
+        names.add("Sergio Torres");
+        names.add("Marta Luna");
+        names.add("Iván Ramos");
+        names.add("Sonia Castro");
 
-        String[] ids = {
-                "EMP-001", "EMP-002", "EMP-003", "EMP-004", "EMP-005",
-                "EMP-006", "EMP-007", "EMP-008", "EMP-009", "EMP-010"
-        };
+        List<String> ids = new ArrayList<>();
+        ids.add("EMP-001");
+        ids.add("EMP-002");
+        ids.add("EMP-003");
+        ids.add("EMP-004");
+        ids.add("EMP-005");
+        ids.add("EMP-006");
+        ids.add("EMP-007");
+        ids.add("EMP-008");
+        ids.add("EMP-009");
+        ids.add("EMP-010");
 
-        Employee[] employeeList = new Employee[10];
+        List<Employee> employeeList = new ArrayList<>();
 
-        for (int i = 0; i < employeeList.length; i++) {
-            double increasingSalary = 25000.0 + (i * 4000.0);
-            if (i < 7) {
+        //METODO DE CREAR EMPLEADOS ALEATORIOS BY IGOR!
 
-                employeeList[i] = new Employee(ids[i], names[i], increasingSalary, true);
+        for (int i = 0; i < names.size(); i++) {
+            if (i % 3 == 0) {
+                employeeList.add(new Intern(ids.get(i), names.get(i), 18000.0));
             } else {
-                employeeList[i] = new Intern(ids[i], names[i], increasingSalary);
+                employeeList.add(new Employee(ids.get(i), names.get(i), 30000.0, true));
             }
         }
+//        for (int i = 0; i < names.size(); i++) {
+//            double increasingSalary = 25000.0 + (i * 4000.0);
+//            if (i < 5) {
+//                employeeList.add(new Employee(ids.get(i), names.get(i), increasingSalary, true));
+//            } else {
+//                employeeList.add(new Intern(ids.get(i), names.get(i), increasingSalary));
+//            }
+//        }
 
         // Imprimimos la lista
-        for (Employee e : employeeList) {
-            System.out.println(e);
+        for (Employee employee : employeeList) {
+            System.out.println(employee);
         }
 
         // Tarea 4: Validación
@@ -44,12 +68,12 @@ public class Main {
 
         // 1. Probamos con Ana García
 
-        employeeList[3].setSalary(60000.0);
-        System.out.println("Salary of " + employeeList[3].getName() + " (Fixed): " + employeeList[3].getSalary());
+        employeeList.get(3).setSalary(22200.0);
+        System.out.println("Salary of " + employeeList.get(3).getName() + " (Fixed): " + employeeList.get(3).getSalary());
 
         // 2. Probamos con Iván Ramos
 
-        employeeList[8].setSalary(90000.0);
-        System.out.println("Salary of " + employeeList[8].getName() + " (Intern): " + employeeList[8].getSalary());
+        employeeList.get(9).setSalary(40000.0);
+        System.out.println("Salary of " + employeeList.get(9).getName() + " (Intern): " + employeeList.get(9).getSalary());
     }
 }

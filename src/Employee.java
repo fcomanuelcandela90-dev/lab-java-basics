@@ -7,10 +7,10 @@ public class Employee {
 
     // Constructor
     public Employee(String id, String name, double salary, boolean isFullTime) {
-        this.id = id;
-        this.name = name;
-        this.salary = salary;
-        this.isFullTime = isFullTime;
+        setId(id);
+        setName(name);
+        setSalary(salary);
+        setFullTime(isFullTime);
     }
 
     public String getRole() {
